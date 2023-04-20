@@ -24,7 +24,7 @@ def FileSort(direc, typ, data):
             file.write(data)
 
 def do_request(connectionSocket):
-    
+    print('Request Made')
     headersCombined = ""
     bodyCombined = ""
     body = ""
@@ -118,6 +118,6 @@ if __name__ == '__main__':
     if len(sys.argv) > 1:
         serverPort = int(sys.argv[1])
     else:
-        serverPort = 1337
+        serverPort = 8080  # Change this line
         
     main(serverPort)
