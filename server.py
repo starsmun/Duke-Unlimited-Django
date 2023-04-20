@@ -24,7 +24,6 @@ def FileSort(direc, typ, data):
             file.write(data)
 
 def do_request(connectionSocket):
-    print('Request Made')
     headersCombined = ""
     bodyCombined = ""
     body = ""
@@ -57,7 +56,7 @@ def do_request(connectionSocket):
     responseData = ''
     
     match requestPage.split('/')[1]:
-        case 'quiz':
+        case '':
             responseHeaders = 'HTTP/1.1 200 OK\r\nContent-Type: text/html\r\n'
             responseData = FileSort('Website/index.html','r','').encode()
 
@@ -83,12 +82,6 @@ def do_request(connectionSocket):
             responseData = FileSort('Website/Fonts'+'/'+file,'rb','')
             responseHeaders += f"Cache-Control: public, max-age={86400}\r\n"
                 
-
-                
-        case '':
-            responseHeaders = 'HTTP/1.1 404 Not Found\r\n'
-            responseData = ''.encode()
-    
         case _:
             responseHeaders = 'HTTP/1.1 404 Not Found\r\n'
             responseData = ''.encode()
