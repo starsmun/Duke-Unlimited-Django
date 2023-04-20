@@ -105,7 +105,7 @@ def main(serverPort):
     mySocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     mySocket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
     
-    mySocket.bind(('',serverPort))
+    mySocket.bind(('0.0.0.0',serverPort))
     mySocket.listen()
     print('The server is ready to receive messages on port:', serverPort)
 
