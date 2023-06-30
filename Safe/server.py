@@ -4,7 +4,6 @@ import sys
 import re
 import urllib.parse
 
-
 def FileSort(direc, typ, data):
     if typ == 'r' or typ == 'rb':
         try:

@@ -1,17 +1,31 @@
-$(document).ready(function() {
+var questions = []
+var loop = 9;
+
+$(document).ready(async function() {
+    questions = JSON.parse(await getData('../get_questions'));
+    setValues(questions[9-loop]);
+    $('#SlideUpBar h1').text(questions[9-loop]['answer']);
     setTimeout(() => moveLogo('DOWN'), 500);
     setTimeout(moveTextUp, 1500);
     loadYouTubeIframeAPI();
 });
 
-var loop = 9;
 
-function countdown(){
+function getData(url) {
+	return new Promise((resolve, reject) => {
+		const inputRequest = new XMLHttpRequest();
+		inputRequest.open("GET", url , true);
+		inputRequest.onload = () => resolve(inputRequest.responseText);
+		inputRequest.send();
+	});
+}
+
+async function countdown(){
 	var timer = 8;
 	var Timeout = 1;
-	$('#CountdownBar').css("width","100%");
-	$('#DukeLogoBox img').attr("src","Images/Duke Spiral.jpg");
 	
+	$('#CountdownBar').css("width","100%");
+	$('#DukeLogoBox img').attr("src",imageStatic+"Duke Spiral.jpg");
 	setTimeout(function(){
 		$('#DukeLogo h1').css("display","block");
 	}, 5);
@@ -28,11 +42,14 @@ function countdown(){
 		} else {
 			setTimeout(function(){
 				$('#DukeLogo h1').css("display","none");
-				$('#DukeLogoBox img').attr("src","Images/Duke Logo.jpg");
+				$('#DukeLogoBox img').attr("src",imageStatic+"Duke Logo.jpg");
 				$('#SlideUpBar').css("height","74vh");
 				moveTextDown();
 			}, 1000);
-			setTimeout(() => $('#TransitionBar').css("height","100vh"), 4000);
+			setTimeout(function() {
+				$('#TransitionBar').css("height","100vh");
+				setValues(questions[9-loop]);
+			}, 4000);
 			setTimeout(() => reset(), 4700);
 			setTimeout(function(){
 				if(loop != 0) moveTextUp()
@@ -98,6 +115,13 @@ function moveLogo(Direction) {
 	
 }
 
+function setValues(Question){
+	$('#QuestionBox h1').text(questions[9-loop]['question']);
+	$('.Option').each(function(index) {
+		$(this).find('p').text(Question['options'][index]);
+	});
+}
+
 // Youtube Playlist Stuff
 let player;
 
@@ -113,7 +137,8 @@ function onYouTubeIframeAPIReady() {
     player = new YT.Player('player', {
         playerVars: {
             listType: 'playlist',
-            list: 'PLSdaxYHBYxmz9cBdQG5KPKG0Yhufjy1oD',
+            list: 'PLSdaxYHBYxmzjZeqkO66jiuZQ4aepuoy7',
+            origin: 'http://localhost:8100',
         },
         events: {
             'onReady': onPlayerReady,
@@ -140,12 +165,13 @@ function pauseVideo() {
 function onPlayerReady(event) {
 	player.setVolume(0);
 	player.playVideo();
-	setTimeout(() => event.target.setVolume(100), 700);
+	setTimeout(() => event.target.setVolume(100), 2000);
 	
 	fadePlayer('in');
-	setTimeout(function(){
+	setTimeout(async function(){
 		countdown();
 		var x = setInterval(function() {
+			$('#SlideUpBar h1').text(questions[9-loop]['answer']);
 			loop=loop-1;
 			countdown();
 			if (loop == 0) {

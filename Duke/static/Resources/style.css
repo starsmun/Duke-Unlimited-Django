@@ -1,17 +1,16 @@
 @font-face {
-  	font-family: Franchise-Bold;
-  	src: url(../Fonts/Franchise-Bold.ttf);
-	
+    font-family: Franchise-Bold;
+    src: url('/static/Fonts/Franchise-Bold.ttf');
 }
 
 @font-face {
-  	font-family: BlackSans-Regular;
-  	src: url(../Fonts/blacksans-regular.ttf);	
+    font-family: BlackSans-Regular;
+    src: url('/static/Fonts/blacksans-regular.ttf'); 
 }
 
 @font-face {
-  	font-family: BlackSans-Bold;
-  	src: url(../Fonts/BlackSans-Bold.ttf);	
+    font-family: BlackSans-Bold;
+    src: url('/static/Fonts/BlackSans-Bold.ttf'); 
 }
 
 
