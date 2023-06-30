@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" href="{% static 'Resources/style.css' %}">
+		<title>Duke Unlimited</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="{% static 'Resources/functions.js' %}"></script>
+		<script type="text/javascript">
+			var imageStatic = "{% static 'Images/' %}";
+		</script>
+	</head>
+	<body>
+		<div id="QuestionBox">
+			<h1>HOW MANY WALLNUTS CAN SOMEONE FIT UP THEIR ASS?</h1>
+		</div>
+		<div class="OptionsBox">
+  			<div class="Option">
+				<h1>A</h1>
+				<p>1 wallnut</p>
+			</div>
+  			<div class="Option">
+				<h1>B</h1>
+				<p>3 wallnuts</p>
+			</div>
+ 			<div class="Option">
+				<h1>C</h1>
+				<p>7 wallnuts</p>
+			</div>
+  			<div class="Option">
+				<h1>D</h1>
+				<p>what limit?</p>
+			</div>
+		</div>
+		<div id="DukeLogoBox">	
+			<img id="DukeLogo" src="{% static 'Images/Duke Logo.jpg' %}" style="z-index: 1; width: 11.7%;">
+			<div id="DukeLogo" style="z-index: 2">
+				<h1>10</h1>
+			</div>
+		</div>
+		<div id="CountdownBar"></div>
+		<div id="SlideUpBar">
+			<h1>D. WHAT LIMIT?</h1>
+		</div>
+		<div id="TransitionBar">
+			<div style="height: 34.7vh; position: absolute; bottom: 0; width: 100%;">
+				<img src="{% static 'Images/Duke Logo.jpg' %}" style="z-index: 1; width: 8.3%;">
+			</div>
+		</div>
+		<div id="player-container" setyle="height: 0; overflow:hidden">
+			<div id="player"></div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,180 @@
+@font-face {
+    font-family: Franchise-Bold;
+    src: url('/static/Fonts/Franchise-Bold.ttf');
+}
+
+@font-face {
+    font-family: BlackSans-Regular;
+    src: url('/static/Fonts/blacksans-regular.ttf'); 
+}
+
+@font-face {
+    font-family: BlackSans-Bold;
+    src: url('/static/Fonts/BlackSans-Bold.ttf'); 
+}
+
+
+body {
+	background-color:black;
+	margin: 0;
+}
+
+#QuestionBox {
+	margin: auto;
+	width: 80vw;
+	overflow: hidden;
+}
+
+#QuestionBox h1 {
+	color: white;
+	text-align: center;
+	font-size: 11.4vh;
+	top: 150%;
+	font-family: Franchise-Bold;
+	letter-spacing: 0.04em;
+	transform: translate(0, 150%);
+	transition: 1s;
+
+	
+}
+
+.OptionsBox{
+  	margin: auto;
+  	width: 70vw;
+  	height: 18vw;
+  	display:grid;
+  	grid-template-columns: 35vw 35vw;
+  	grid-column-gap: 2.5vw;
+  	grid-row-gap: 4vh;
+	color: white;
+}
+
+.OptionsBox .Option h1{
+    	font-size: 11.4vh;
+    	font-family: Franchise-Bold;
+	margin: 0;
+	float: left;
+	position: relative;
+	transition: 1.2s;
+	top: 150%;
+	transform: translate(0, -50%);
+
+}
+
+.OptionsBox .Option p{
+	font-size: 4vh;
+	float: left;
+	font-family: BlackSans-Regular;
+	margin: 0 88px;
+	position: relative;
+	transition: 1.2s;
+	top: 150%;
+	transform: translate(0, -50%);
+}
+
+.OptionsBox .Option {
+	overflow:hidden;
+
+}
+
+#DukeLogoBox {
+	transition-duration: 0.8s;
+	width: 100%;
+	height: 100vh;
+	position: absolute; 
+	bottom: 0;
+	overflow:hidden;
+	
+}
+
+#DukeLogo {
+	transition-duration: 0.8s;
+	position: absolute;
+	margin: auto;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+
+#DukeLogo h1 {
+	font-size: 3.6vw;
+	font-family: BlackSans-Bold;
+	color: white;
+	position: absolute; 
+	margin: 0;
+	top: 50%;
+	left: 50%;
+	display: none;
+  	transform: translate(-80%,-50%);     
+
+}
+
+#DukeLogo img {
+	width: 100%;
+	height: auto;
+	
+
+}
+
+#CountdownBar {
+	background-color: white;
+	mix-blend-mode: difference;
+	width: 0%;
+	height: 26vh;
+	bottom: 0;
+	position: fixed;
+	transition: 10s width;
+	z-index: 3;
+	transition-timing-function: linear;
+
+}
+
+#SlideUpBar {
+	background-color: white;
+	width: 100%;
+	height: 0;
+	transition: 0.8s;
+	bottom: 26vh;
+	position: fixed;
+	z-index: 2;
+	overflow: hidden;
+
+
+}
+
+#SlideUpBar h1 {
+	position: absolute;
+	font-size: 15.4vh;
+    font-family: Franchise-Bold; 
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);   
+}
+
+#TransitionBar {
+	overflow: hidden;
+	background-color: black;
+	width: 100%;
+	height: 0;
+	bottom: 0;
+	transition: 0.7s;
+	position: fixed;
+	z-index: 5;
+}
+
+#TransitionBar img {
+	position: absolute;
+	margin: auto;
+	width: 8.3%;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+
+	
+}
+
+
+
+	
